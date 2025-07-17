@@ -57,7 +57,7 @@ app.post("/auth/verify-code", (req, res) => {
   const { email, code } = req.body;
 
   const entry = codeStore.get(email);
-   console.log("Incoming verify request:", { email, code });
+  console.log("Incoming verify request:", { email, code });
   console.log("Stored code:", entry);
   if (!entry || Date.now() > entry.expiresAt || entry.code !== code) {
     return res.status(400).json({ error: "Invalid or expired code" });
@@ -72,11 +72,25 @@ app.post("/auth/verify-code", (req, res) => {
 app.post("/auth/update-password", async (req, res) => {
   const { email, password } = req.body;
 
-  if (!email || !password) return res.status(400).json({ error: "Missing fields" });
+  if (!email || !password) {
+    return res.status(400).json({ error: "Missing fields" });
+  }
 
   try {
-    const { error } = await supabase.auth.admin.updateUserByEmail(email, { password });
-    if (error) throw error;
+    // Step 1: Find the user by email
+    const { data: { users }, error: listError } = await supabase.auth.admin.listUsers();
+    if (listError) throw listError;
+
+    const user = users.find((u) => u.email === email);
+    if (!user) return res.status(404).json({ error: "User not found" });
+
+    // Step 2: Update password using user ID
+    const { error: updateError } = await supabase.auth.admin.updateUser(user.id, {
+      password
+    });
+
+    if (updateError) throw updateError;
+
 
     await sendEmail({
       to: email,
@@ -84,8 +98,9 @@ app.post("/auth/update-password", async (req, res) => {
       text: "Your password has been updated successfully. If you did not request this, contact support."
     });
 
-    codeStore.delete(email); // Clean up the used code
+    codeStore.delete(email);
     return res.json({ message: "Password updated successfully" });
+
   } catch (err) {
     return res.status(500).json({ error: err.message || "Failed to update password" });
   }

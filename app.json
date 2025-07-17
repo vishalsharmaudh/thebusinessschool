@@ -1,29 +1,47 @@
 {
   "expo": {
-    "name": "mba-final-project",
-    "slug": "mba-final-project",
+    "name": "my-app",
+    "slug": "my-app",
+    "scheme": "my-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vishuudh12.myapp"
     },
     "android": {
+      "package": "com.vishuudh12.myapp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": {
+            "scheme": "my-app",
+            "host": "*"
+          },
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ],
       "edgeToEdgeEnabled": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "914c290f-c606-4157-82eb-41f2db7e7962"
+      }
+    },
+    "owner": "vishuudh12"
   }
 }
