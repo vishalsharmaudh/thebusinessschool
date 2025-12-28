@@ -37,7 +37,7 @@ export default function ResetPasswordScreen() {
       }
 
       Alert.alert('Success', 'Your password has been updated.');
-      navigation.navigate('Login'); // Or wherever you want to go
+      navigation.navigate('login'); // Or wherever you want to go
 
     } catch (err) {
       setLoading(false);

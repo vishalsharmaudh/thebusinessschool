@@ -24,7 +24,7 @@ const SignUpScreen = () => {
       return;
     }
 
-    const redirectTo = 'https://zbiugzwvntlavqzfquba.supabase.co/auth/v1/callback';
+    const redirectTo = 'https://vishusuri.onrender.com';
 
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -34,7 +34,7 @@ const SignUpScreen = () => {
           firstName,
           lastName,
         },
-        emailRedirectTo: redirectTo, // required only if email confirmation is enabled
+        emailRedirectTo: redirectTo, 
       },
     });
 

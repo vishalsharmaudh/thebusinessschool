@@ -29,7 +29,7 @@ const facultyData = [
   {
     name: 'Prof Rajendra Mishra',
     title: 'Professor',
-    photo: require('../assets/rajendra.jpeg'),
+    photo: require('../assets/rajendra.jpg'),
   },
   {
     name: 'Amisha Gupta',
@@ -75,11 +75,6 @@ const facultyData = [
     name: 'Dr. Neelu Rohmetra',
     title: 'Dean, Research Studies',
     photo: require('../assets/neelu.jpg'),
-  },
-  {
-    name: 'Dr. Saloni Devi',
-    title: 'Asst. Professor',
-    photo: require('../assets/saloni.jpg'),
   },
   
 ];

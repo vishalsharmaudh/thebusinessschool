@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {  View,  Text,  TouchableOpacity,  StyleSheet,  FlatList,  Dimensions,  Alert,} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, FlatList, Dimensions, Alert, } from 'react-native';
 import { supabase } from '../supabaseClient';
 
 const dashboardItems = [
-  { title: 'Student Details', icon: '🎓', screen: 'StudentScreen' },
-  { title: 'Faculty', icon: '👩‍🏫', screen: 'FacultyAdminScreen' },
   { title: 'Queries', icon: '❓', screen: 'QueriesScreen' },
   { title: 'Admission Requests', icon: '📥', screen: 'AdmissionsScreen' },
+  { title: 'Update Gallery', icon: '☁️', screen: 'GalleryAdmin' },
 ];
 
 const CARD_WIDTH = (Dimensions.get('window').width - 48) / 2;
@@ -25,9 +24,22 @@ const AdminCard = ({ item, navigation }) => (
 );
 
 export default function AdminDashboard({ navigation }) {
+  const handleLogout = async () => {
+  try {
+    await supabase.auth.signOut(); // Optional
+  } catch (error) {
+    console.error('Error signing out:', error.message);
+  }
+
+  // Navigate to Login without resetting the stack
+  navigation.navigate('loginadmin');
+};
+
+
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Admin Dashboard</Text>
+
       <FlatList
         data={dashboardItems}
         keyExtractor={(item) => item.screen}
@@ -38,9 +50,13 @@ export default function AdminDashboard({ navigation }) {
         columnWrapperStyle={styles.row}
         contentContainerStyle={styles.list}
       />
+      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+        <Text style={styles.logoutText}>Logout</Text>
+      </TouchableOpacity>
     </View>
   );
 }
+
 
 export function Facultydetails({ navigation }) {
   return (
@@ -147,6 +163,20 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     paddingHorizontal: 12,
   },
+  logoutButton: {
+    backgroundColor: '#ef4444',
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    alignSelf: 'center',
+    marginBottom: 100,
+  },
+  logoutText: {
+    color: '#fff',
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
+
   heading: {
     fontSize: 26,
     fontWeight: 'bold',

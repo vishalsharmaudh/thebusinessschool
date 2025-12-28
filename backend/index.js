@@ -40,9 +40,11 @@ app.post("/auth/request-reset", async (req, res) => {
 
     await sendEmail({
       to: email,
-      subject: "Your Password Reset Code",
-      text: `Your verification code is: ${code}\n\nIt will expire in 10 minutes.`
+      subject: "Your Password Reset Code - The Business School",
+      text: `Your verification code is: ${code}`,  // Fallback plain text
+      code,  // This gets passed to htmlContent()
     });
+
 
     return res.json({ message: "Code sent successfully" });
   } catch (err) {
@@ -85,17 +87,42 @@ app.post("/auth/update-password", async (req, res) => {
     if (!user) return res.status(404).json({ error: "User not found" });
 
     // Step 2: Update password using user ID
-    const { error: updateError } = await supabase.auth.admin.updateUser(user.id, {
-      password
-    });
+    const { data, updateError } = await supabase.auth.admin.updateUserById(user.id, { password });
 
     if (updateError) throw updateError;
 
+    const successPasswordHtml = () => `
+  <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+    <h2 style="color: #009cde; font-size: 22px;">
+      Password Changed – The Business School, University of Jammu
+    </h2>
+
+    <p>Dear Student,</p>
+
+    <p>
+      This is a confirmation that the password for your account on the official app of
+      <strong>The Business School, University of Jammu</strong> has been successfully updated.
+    </p>
+
+    <p>
+      If you made this change, no further action is needed.
+      If you did not make this change, please contact support immediately.
+    </p>
+
+    <p style="margin-top: 40px;">
+      Warm regards,<br />
+      <strong>Admissions Team</strong><br />
+      The Business School<br />
+      University of Jammu
+    </p>
+  </div>
+`;
 
     await sendEmail({
       to: email,
-      subject: "Password Changed Successfully",
-      text: "Your password has been updated successfully. If you did not request this, contact support."
+      subject: "Password Successfully Updated – The Business School",
+      text: "Your password has been updated successfully. If this wasn’t you, contact support.",
+      html: successPasswordHtml(), // ✅ Use this new one!
     });
 
     codeStore.delete(email);

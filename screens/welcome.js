@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 70,
   },
   button: {
     width: width * 0.7,

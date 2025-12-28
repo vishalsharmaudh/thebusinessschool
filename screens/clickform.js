@@ -9,6 +9,10 @@ export default function MBAAdmissionForm() {
     navigation.navigate('MBAAdmissionForm'); // This matches the name in App.js
   };
 
+  const handleStatusPress = () => {
+    navigation.navigate('ApplicationStatus'); // new screen
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: '#e6f0ff' }}>
       <ScrollView contentContainerStyle={{ padding: 20, alignItems: 'center' }}>
@@ -65,6 +69,12 @@ export default function MBAAdmissionForm() {
               Click Here to Fill the Form
             </Text>
           </TouchableOpacity>
+
+          {/* application status bar  */}
+          <View style={{
+            
+        }}>
+        </View>
         </View>
       </ScrollView>
     </View>

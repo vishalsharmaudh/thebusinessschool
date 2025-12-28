@@ -7,7 +7,7 @@ const FacultyProfile = () => {
     <ScrollView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Image source={require('../../assets/rajendra.jpeg')} style={styles.profileImage} />
+        <Image source={require('../../assets/rajendra.jpg')} style={styles.profileImage} />
         <View style={styles.headerText}>
           <Text style={styles.name}>Prof. Rajendra Mishra</Text>
           <Text style={styles.designation}>

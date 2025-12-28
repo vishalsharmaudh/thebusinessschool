@@ -7,6 +7,7 @@ import home from './screens/home';
 import Facultydetails from './screens/facultydetails';
 import PDFViewerScreen from './screens/PDFViewerScreen';
 import about from './screens/about';
+import GalleryAdmin from './screens/GalleryAdmin';
 import QueriesScreen from './screens/QueriesScreen'
 import ThankYou from './screens/ThankYou';
 import confirm from './screens/confirm'
@@ -53,6 +54,11 @@ export default function App() {
           name="home" 
           component={home} 
           options={{ title: 'Business School' }}
+        />
+        <Stack.Screen 
+          name="GalleryAdmin" 
+          component={GalleryAdmin} 
+          options={{ title: 'Photos to be Uploaded' }}
         />
         <Stack.Screen
         name="ResetPasswordScreen"

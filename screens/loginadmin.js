@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
+import { useCallback } from 'react';
+import { supabase } from '../supabaseClient';
 
 const LoginScreen = ({ navigation }) => {
   const [userId, setUserId] = useState('');
@@ -7,6 +10,16 @@ const LoginScreen = ({ navigation }) => {
   const [userError, setUserError] = useState('');
   const [passError, setPassError] = useState('');
   const [authError, setAuthError] = useState('');
+
+  useFocusEffect(
+    useCallback(() => {
+      setUserId('');
+      setPassword('');
+      setUserError('');
+      setPassError('');
+      setAuthError('');
+    }, [])
+  );
 
   const handleLogin = () => {
     setUserError('');
@@ -28,8 +41,8 @@ const LoginScreen = ({ navigation }) => {
     if (!valid) return;
 
     // Hardcoded login credentials
-    const ADMIN_USERNAME = 'vishu';
-    const ADMIN_PASSWORD = 'suri';
+    const ADMIN_USERNAME = 'aubidparrey';
+    const ADMIN_PASSWORD = 'Aubid@#123';
 
     if (userId === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
       navigation.navigate('AdminDashboard'); // success

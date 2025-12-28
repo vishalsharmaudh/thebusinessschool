@@ -6,13 +6,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 // Using placeholder images from Unsplash (free educational images)
 const PLACEHOLDER_IMAGES = {
-  eligibility: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500',
+  eligibility: 'https://thumbs.dreamstime.com/b/hand-writing-word-eligible-piece-paper-equality-diversity-concept-using-sticky-notesa-216211511.jpg?w=768',
   admission: 'https://images.unsplash.com/photo-1588072432836-e10032774350?w=500',
   exam: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500',
   selection: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500',
   fees: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500',
   refund: 'https://images.unsplash.com/photo-1604594849809-dfedbc827105?w=500',
-  academic: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500'
+  academic: 'https://plus.unsplash.com/premium_photo-1682125773446-259ce64f9dd7?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 };
 
 const sections = [

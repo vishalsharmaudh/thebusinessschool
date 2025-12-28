@@ -14,10 +14,14 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.vishuudh12.myapp"
+      "bundleIdentifier": "com.vishuudh12.myapp",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "com.vishuudh12.myapp",
+      "permissions": [],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -29,7 +33,10 @@
             "scheme": "my-app",
             "host": "*"
           },
-          "category": ["BROWSABLE", "DEFAULT"]
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
         }
       ],
       "edgeToEdgeEnabled": true
@@ -42,6 +49,10 @@
         "projectId": "914c290f-c606-4157-82eb-41f2db7e7962"
       }
     },
-    "owner": "vishuudh12"
+    "owner": "vishuudh12",
+    "plugins": [
+      "expo-font",
+      "expo-web-browser"
+    ]
   }
 }
