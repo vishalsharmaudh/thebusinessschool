@@ -1,6 +1,12 @@
 import { createClient } from '@supabase/supabase-js';
+import Constants from 'expo-constants';
 
-const SUPABASE_URL= 'https://zbiugzwvntlavqzfquba.supabase.co';
-const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpiaXVnend2bnRsYXZxemZxdWJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDczODAxNjMsImV4cCI6MjA2Mjk1NjE2M30.tRVPiRc6qcNK25hYtg6m-jcLoCUuXZ4nbmotsmb2oUo';
+// Get values from environment variables
+const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing Supabase environment variables. Please check your .env file.');
+}
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
