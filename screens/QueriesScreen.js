@@ -55,9 +55,9 @@ const QueriesScreen = () => {
     setShowReplyBox(true);
   };
   const sendQueryReplyEmail = async (to_name, to_email, reply_message) => {
-    const serviceId = 'service_tzg7ufr';
-    const templateId = 'template_kvakrn1';
-    const publicKey = 'Asc9kLzHm3kouw0kS';
+    const serviceId = process.env.EXPO_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.EXPO_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.EXPO_PUBLIC_EMAILJS_PUBLIC_KEY;
 
     const payload = {
       service_id: serviceId,
