@@ -16,6 +16,7 @@
     "@react-navigation/native-stack": "^6.9.12",
     "@supabase/supabase-js": "^2.50.0",
     "babel-preset-expo": "~54.0.9",
+    "base-64": "^1.0.0",
     "base64-arraybuffer": "^1.0.2",
     "base64-js": "^1.5.1",
     "buffer": "^6.0.3",

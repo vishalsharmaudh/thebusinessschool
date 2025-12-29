@@ -43,7 +43,7 @@ export default function FacultyAdminScreen() {
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       quality: 1,
-      base64: false,
+      base64: true,
     });
 
     if (!result.canceled && result.assets.length > 0) {

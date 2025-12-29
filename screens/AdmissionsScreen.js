@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 
 let isSharing = false;
 const sendAcceptanceEmail = async (to_name, to_email) => {
-  const serviceId = 'service_eu4jnmk';
+  const serviceId = 'service_tzg7ufr';
   const templateId = 'template_kvakrn1';
   const publicKey = 'Asc9kLzHm3kouw0kS';
 
@@ -45,7 +45,7 @@ const sendAcceptanceEmail = async (to_name, to_email) => {
 };
 
 const sendRejectionEmail = async (to_name, to_email) => {
-  const serviceId = 'service_eu4jnmk';
+  const serviceId = 'service_tzg7ufr';
   const templateId = 'template_yrwmzo7'; 
   const publicKey = 'Asc9kLzHm3kouw0kS';
 

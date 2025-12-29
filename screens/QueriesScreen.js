@@ -55,9 +55,9 @@ const QueriesScreen = () => {
     setShowReplyBox(true);
   };
   const sendQueryReplyEmail = async (to_name, to_email, reply_message) => {
-    const serviceId = 'service_k4gv75r';
-    const templateId = 'template_if5ww2q';
-    const publicKey = 'ClN05_9Y0DvooR69D';
+    const serviceId = 'service_tzg7ufr';
+    const templateId = 'template_kvakrn1';
+    const publicKey = 'Asc9kLzHm3kouw0kS';
 
     const payload = {
       service_id: serviceId,
