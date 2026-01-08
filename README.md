@@ -10,14 +10,6 @@ A modern, cross-platform mobile application for The Business School - providing 
 - **Responsive Design** - Adapts to different screen sizes and orientations
 - **Smooth Navigation** - Intuitive navigation with React Navigation
 
-## 🚀 Demo
-
-<!-- Add screenshots or demo video link here -->
-```
-| Home Screen | Courses | Profile |
-|-------------|---------|---------|
-| ![Home](screenshots/home.png) | ![Courses](screenshots/courses.png) | ![Profile](screenshots/profile.png) |
-```
 
 ## 🛠️ Built With
 
